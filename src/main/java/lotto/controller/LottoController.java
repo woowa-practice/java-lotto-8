@@ -1,8 +1,6 @@
 package lotto.controller;
 
-import lotto.domain.Lotto;
-import lotto.domain.LottoGenerator;
-import lotto.domain.Lottos;
+import lotto.domain.*;
 import lotto.view.LottoInputView;
 import lotto.view.LottoOutputView;
 
@@ -38,13 +36,14 @@ public class LottoController {
         for (String s : inputWin) {
             win.add(Integer.parseInt(s.trim()));
         }
-
-        Lotto winningLotto=new Lotto(win);
+        Lotto winn=new Lotto(win);
 
         Integer bonusNumber=lottoInputView.inputBonusNumber();
 
+        WinningLotto winningLotto=new WinningLotto(winn, bonusNumber);
+
         lottoOutputView.startResultOutput();
 
-
+        lottoOutputView.outputLottoResult(lottos.calculateResult(winningLotto));
     }
 }

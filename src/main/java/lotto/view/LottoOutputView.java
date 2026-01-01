@@ -2,6 +2,7 @@ package lotto.view;
 
 import lotto.domain.Lotto;
 import lotto.domain.LottoInfo;
+import lotto.domain.LottoResult;
 import lotto.domain.Lottos;
 
 import java.util.List;
@@ -21,8 +22,8 @@ public class LottoOutputView {
         System.out.println("---");
     }
 
-    public void outputLottoResult(LottoInfo lottoInfo){
-        System.out.println(lottoInfo.getMatchNumbers()+"개 일치 ("+lottoInfo.getPrize()+"원 - ");
+    public void outputLottoResult(LottoResult result){
+        System.out.println(result);
     }
 
     public void outputYield(double yield){
