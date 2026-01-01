@@ -21,8 +21,11 @@ public class LottoOutputView {
         System.out.println("---");
     }
 
-    public void outputLottoResult(int matchNumberCount, boolean bonusMatch, double yield){
+    public void outputLottoResult(LottoInfo lottoInfo){
+        System.out.println(lottoInfo.getMatchNumbers()+"개 일치 ("+lottoInfo.getPrize()+"원 - ");
+    }
 
-
+    public void outputYield(double yield){
+        System.out.println("총 수익률은 "+yield+"%입니다.");
     }
 }

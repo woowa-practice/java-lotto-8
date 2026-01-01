@@ -1,6 +1,6 @@
 package lotto;
 
-import lotto.domain.ConfirmWinnings;
+import lotto.domain.WinningLotto;
 import lotto.domain.Lotto;
 import lotto.domain.LottoInfo;
 import org.assertj.core.api.Assertions;
@@ -16,14 +16,14 @@ public class 당첨확인테스트 {
 
     @Test
     void 당첨최종테스트(){
-        ConfirmWinnings confirmWinnings=new ConfirmWinnings();
         win.add(1); win.add(2); win.add(3); win.add(4); win.add(5); win.add(6);
         my.add(1); my.add(2); my.add(3); my.add(4); my.add(5); my.add(7);
         Lotto winningLotto=new Lotto(win);
         Lotto myLotto=new Lotto(my);
         Integer bonusNumber=7;
+        WinningLotto confirmWinnings=new WinningLotto(winningLotto, bonusNumber);
 
-        Assertions.assertThat(LottoInfo.SECOND).isEqualTo(confirmWinnings.resultOfLotto(winningLotto, myLotto, bonusNumber));
+        Assertions.assertThat(LottoInfo.SECOND).isEqualTo(confirmWinnings.resultOfLotto(myLotto));
 
     }
 //
