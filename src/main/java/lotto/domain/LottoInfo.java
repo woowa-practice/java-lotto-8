@@ -19,4 +19,8 @@ public enum LottoInfo {
         this.prize=prize;
     }
 
+    public Long getPrize(){
+        return prize;
+    }
+
 }
