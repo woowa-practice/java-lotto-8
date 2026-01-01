@@ -19,17 +19,17 @@ public class LottoController {
     }
 
     public void run(){
-        Integer amount=lottoInputView.inputLottoAmount()/1000;
+        Integer amount=lottoInputView.inputLottoAmount();
 
         List<Lotto> lottoList=new ArrayList<>();
-        for(int i=0; i<amount; i++){
+        for(int i=0; i<amount/1000; i++){
             Lotto lotto=new Lotto(lottoGenerator.generateLotto());
             lottoList.add(lotto);
         }
 
         Lottos lottos=new Lottos(lottoList);
 
-        lottoOutputView.outputPurchasedLotto(amount, lottos);
+        lottoOutputView.outputPurchasedLotto(amount/1000, lottos);
 
         String[] inputWin=lottoInputView.inputLottoNumber().split(",");
         List<Integer> win=new ArrayList<>();
@@ -45,5 +45,9 @@ public class LottoController {
         lottoOutputView.startResultOutput();
 
         lottoOutputView.outputLottoResult(lottos.calculateResult(winningLotto));
+
+        double yield=lottos.calculateResult(winningLotto).calculateYield(amount);
+
+        lottoOutputView.outputYield(yield);
     }
 }

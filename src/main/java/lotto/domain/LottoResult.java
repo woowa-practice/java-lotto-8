@@ -7,10 +7,6 @@ public class LottoResult {
 
     public LottoResult(Map<LottoInfo, Integer> results) {
         this.results = results;
-
-        for (LottoInfo lottoInfo : LottoInfo.values()) {
-            this.results.put(lottoInfo, 0);
-        }
     }
 
     public void add(LottoInfo lottoInfo) {

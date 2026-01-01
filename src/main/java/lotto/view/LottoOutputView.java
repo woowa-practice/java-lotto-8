@@ -13,7 +13,7 @@ public class LottoOutputView {
         System.out.println(amount+"개를 구매했습니다.");
         List<Lotto> lottoList=lottos.getLottos();
         for (Lotto lotto : lottoList) {
-            System.out.println(lotto);
+            System.out.println(lotto.getNumbers());
         }
     }
 
@@ -23,7 +23,25 @@ public class LottoOutputView {
     }
 
     public void outputLottoResult(LottoResult result){
-        System.out.println(result);
+        List<LottoInfo> ranks=List.of(
+                LottoInfo.FIFTH,LottoInfo.FOURTH,LottoInfo.THIRD,
+                LottoInfo.SECOND, LottoInfo.FIRST
+        );
+
+        for (LottoInfo rank : ranks) {
+            int count=result.getCount(rank);
+            printRankInfo(rank, count);
+        }
+    }
+
+    private void printRankInfo(LottoInfo rank, int count){
+        String message=String.format("%d개 일치", rank.getMatchNumbers());
+
+        if(rank.isBonusMatch()){
+            message+="보너스 볼 일치";
+        }
+
+        System.out.printf("%s (%,d원) - %d개\n", message, rank.getPrize(), count);
     }
 
     public void outputYield(double yield){
