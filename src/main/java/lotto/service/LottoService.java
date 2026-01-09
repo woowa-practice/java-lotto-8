@@ -1,6 +1,9 @@
-package lotto.domain;
+package lotto.service;
 
-public class CalculateResult {
+import lotto.domain.Lotto;
+import lotto.domain.Rank;
+
+public class LottoService {
 
     //당첨로또+보너스번호랑 발행로또 하나 비교해서 몇개 맞는지 반환
     public static Rank calculateRank(Lotto winningLotto, int bonusNumber, Lotto lotto){
