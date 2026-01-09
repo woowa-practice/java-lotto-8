@@ -32,8 +32,8 @@ public class LottoResult {
         return totalPrize;
     }
 
-    public void setYield(double yield) {
-        this.yield = yield;
+    public void calculateYield(int purchaseAmount) {
+        this.yield=((double) totalPrize / purchaseAmount) * 100;
     }
 
     public String getYield() {
