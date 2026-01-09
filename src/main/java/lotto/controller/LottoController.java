@@ -3,6 +3,7 @@ package lotto.controller;
 import lotto.domain.Lotto;
 import lotto.domain.LottoResult;
 import lotto.domain.Lottos;
+import lotto.domain.WinningInfo;
 import lotto.util.LottoGenerator;
 import lotto.view.InputView;
 import lotto.view.OutputView;
@@ -36,7 +37,9 @@ public class LottoController {
 
         int bonusNumber = inputView.inputBonusNumber(winningLotto);
 
-        LottoResult lottoResult = lottos.calculateResult(winningLotto, bonusNumber);
+        WinningInfo winningInfo=new WinningInfo(winningLotto, bonusNumber);
+
+        LottoResult lottoResult = lottos.calculateResult(winningInfo);
 
         lottoResult.calculateYield(amount);
 
