@@ -9,7 +9,7 @@ public class LottoGenerator {
     private static final int END=45;
     private static final int COUNT=6;
 
-    public List<Integer> generateLotto(){
+    public static List<Integer> generateLotto(){
         return Randoms.pickUniqueNumbersInRange(START, END, COUNT);
     }
 }
