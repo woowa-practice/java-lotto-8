@@ -11,8 +11,8 @@ public class Lottos {
         this.lottos = new ArrayList<>(lottos);
     }
 
-    public LottoResult calculateResult(WinningInfo winningInfo){
-        LottoResult result=new LottoResult();
+    public LottoResult calculateResult(WinningInfo winningInfo) {
+        LottoResult result = new LottoResult();
         for (Lotto lotto : lottos) {
             result.add(winningInfo.calculateRank(lotto));
         }

@@ -33,11 +33,11 @@ public class LottoController {
 
         outputView.outputRandomLotto(count, lottos.getLottos());
 
-        Lotto winningLotto=new Lotto(inputView.inputWinningLotto());
+        Lotto winningLotto = new Lotto(inputView.inputWinningLotto());
 
         int bonusNumber = inputView.inputBonusNumber(winningLotto);
 
-        WinningInfo winningInfo=new WinningInfo(winningLotto, bonusNumber);
+        WinningInfo winningInfo = new WinningInfo(winningLotto, bonusNumber);
 
         LottoResult lottoResult = lottos.calculateResult(winningInfo);
 
