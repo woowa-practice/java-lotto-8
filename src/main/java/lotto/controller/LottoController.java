@@ -3,15 +3,12 @@ package lotto.controller;
 import lotto.domain.Lotto;
 import lotto.domain.LottoResult;
 import lotto.domain.Lottos;
-import lotto.service.LottoService;
 import lotto.util.LottoGenerator;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class LottoController {
     private final InputView inputView;
@@ -39,12 +36,9 @@ public class LottoController {
 
         int bonusNumber = inputView.inputBonusNumber(winningLotto);
 
-        LottoResult lottoResult = new LottoResult();
+        LottoResult lottoResult = lottos.calculateResult(winningLotto, bonusNumber);
 
-        for (Lotto lotto : lottos.getLottos()) {
-            lottoResult.add(LottoService.calculateRank(winningLotto, bonusNumber, lotto));
-        }
-        lottoResult.setYield(LottoService.calculateYield(lottoResult.getTotalPrize(), amount));
+        lottoResult.calculateYield(amount);
 
         outputView.outputLottoResult(lottoResult);
     }
