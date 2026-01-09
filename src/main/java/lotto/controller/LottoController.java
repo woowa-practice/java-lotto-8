@@ -35,11 +35,7 @@ public class LottoController {
 
         outputView.outputRandomLotto(count, lottos.getLottos());
 
-        String winningNumber = inputView.inputWinningLotto();
-        Lotto winningLotto = new Lotto(Arrays.stream(winningNumber.split(","))
-                .map(String::trim)
-                .map(Integer::parseInt)
-                .collect(Collectors.toList()));
+        Lotto winningLotto=new Lotto(inputView.inputWinningLotto());
 
         int bonusNumber = inputView.inputBonusNumber(winningLotto);
 

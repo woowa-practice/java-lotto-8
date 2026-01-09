@@ -5,6 +5,8 @@ import lotto.domain.Lotto;
 import lotto.util.Parser;
 import lotto.util.Validator;
 
+import java.util.List;
+
 public class InputView {
 
     public Integer inputPurchaseAmount() {
@@ -21,13 +23,13 @@ public class InputView {
     }
 
     //여기서 리스트로 변환 후 반환해도 되는지?
-    public String inputWinningLotto() {
+    public List<Integer> inputWinningLotto() {
         while (true) {
             try {
                 System.out.println("\n당첨 번호를 입력해 주세요.");
                 String input = Console.readLine();
                 Validator.validateWinningLotto(input);
-                return input;
+                return Parser.parseIntegerList(input);
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
