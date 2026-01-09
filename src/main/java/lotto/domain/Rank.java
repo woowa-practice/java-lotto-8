@@ -3,7 +3,7 @@ package lotto.domain;
 import java.util.Arrays;
 
 public enum Rank {
-    MISS(0,false,0, ""),
+    MISS(0, false, 0, ""),
     FIFTH(3, false, 5000, "3개 일치 (5,000원) - "),
     FOURTH(4, false, 50000, "4개 일치 (50,000원) - "),
     THIRD(5, false, 1500000, "5개 일치 (1,500,000원) - "),
@@ -15,16 +15,16 @@ public enum Rank {
     private final long prize;
     private final String description;
 
-    Rank(int matchCount, boolean bonusMatch, long prize, String description){
-        this.matchCount=matchCount;
-        this.bonusMatch=bonusMatch;
-        this.prize=prize;
-        this.description=description;
+    Rank(int matchCount, boolean bonusMatch, long prize, String description) {
+        this.matchCount = matchCount;
+        this.bonusMatch = bonusMatch;
+        this.prize = prize;
+        this.description = description;
     }
 
-    public static Rank from(int matchCount, boolean bonusMatch){
+    public static Rank from(int matchCount, boolean bonusMatch) {
         return Arrays.stream(values())
-                .filter(rank -> rank.matchCount==matchCount&&rank.bonusMatch==bonusMatch)
+                .filter(rank -> rank.matchCount == matchCount && rank.bonusMatch == bonusMatch)
                 .findFirst()
                 .orElse(MISS);
     }

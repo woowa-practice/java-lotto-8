@@ -9,22 +9,22 @@ public class LottoResult {
     private long totalPrize;
     private double yield;
 
-    public LottoResult(){
-        this.results=new EnumMap<>(Rank.class);
+    public LottoResult() {
+        this.results = new EnumMap<>(Rank.class);
 
         for (Rank rank : Rank.values()) {
             results.put(rank, 0);
         }
-        this.totalPrize=0;
-        this.yield=0;
+        this.totalPrize = 0;
+        this.yield = 0;
     }
 
-    public void add(Rank rank){
-        results.put(rank, results.get(rank)+1);
-        totalPrize+= rank.getPrize();
+    public void add(Rank rank) {
+        results.put(rank, results.get(rank) + 1);
+        totalPrize += rank.getPrize();
     }
 
-    public Map<Rank, Integer> getResults(){
+    public Map<Rank, Integer> getResults() {
         return Collections.unmodifiableMap(results);
     }
 
@@ -32,11 +32,11 @@ public class LottoResult {
         return totalPrize;
     }
 
-    public void setYield(double yield){
-        this.yield=yield;
+    public void setYield(double yield) {
+        this.yield = yield;
     }
 
-    public String getYield(){
+    public String getYield() {
         return String.format("%.1f", yield);
     }
 }

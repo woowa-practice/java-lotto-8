@@ -18,14 +18,14 @@ public class Lotto {
         isDuplicated(numbers);
     }
 
-    private void isDuplicated(List<Integer> numbers){
-        if(numbers.size()!=numbers.stream().distinct().count()){
+    private void isDuplicated(List<Integer> numbers) {
+        if (numbers.size() != numbers.stream().distinct().count()) {
             throw new IllegalArgumentException("[ERROR] 로또 번호는 중복될 수 없습니다.");
         }
     }
 
     // TODO: 추가 기능 구현
-    public List<Integer> getNumbers(){
+    public List<Integer> getNumbers() {
         return Collections.unmodifiableList(numbers);
     }
 }
