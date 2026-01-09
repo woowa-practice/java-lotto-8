@@ -11,10 +11,10 @@ public class Lottos {
         this.lottos = new ArrayList<>(lottos);
     }
 
-    public LottoResult calculateResult(Lotto winningLotto, int bonusNumber){
+    public LottoResult calculateResult(WinningInfo winningInfo){
         LottoResult result=new LottoResult();
         for (Lotto lotto : lottos) {
-            result.add(lotto.calculateRank(winningLotto, bonusNumber));
+            result.add(winningInfo.calculateRank(lotto));
         }
         return result;
     }
