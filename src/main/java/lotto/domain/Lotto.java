@@ -25,6 +25,14 @@ public class Lotto {
     }
 
     // TODO: 추가 기능 구현
+    public Rank calculateRank(Lotto winningLotto, int bonusNumber){
+        int count=(int) winningLotto.getNumbers().stream()
+                .filter(numbers::contains)
+                .count();
+        boolean bonusMatch=numbers.contains(bonusNumber);
+        return Rank.from(count, bonusMatch);
+    }
+
     public List<Integer> getNumbers() {
         return Collections.unmodifiableList(numbers);
     }
