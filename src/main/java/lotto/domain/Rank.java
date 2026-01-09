@@ -23,7 +23,7 @@ public enum Rank {
     }
 
     public static Rank from(int matchCount, boolean bonusMatch) {
-        if (matchCount == SECOND.getMatchCount() && bonusMatch) {
+        if (matchCount == SECOND.matchCount && bonusMatch) {
             return SECOND;
         }
         return Arrays.stream(values())
