@@ -11,6 +11,14 @@ public class Lottos {
         this.lottos = new ArrayList<>(lottos);
     }
 
+    public LottoResult calculateResult(Lotto winningLotto, int bonusNumber){
+        LottoResult result=new LottoResult();
+        for (Lotto lotto : lottos) {
+            result.add(lotto.calculateRank(winningLotto, bonusNumber));
+        }
+        return result;
+    }
+
     public List<Lotto> getLottos() {
         return Collections.unmodifiableList(lottos);
     }
