@@ -41,7 +41,7 @@ public class LottoController {
                 .map(Integer::parseInt)
                 .collect(Collectors.toList()));
 
-        int bonusNumber= inputView.inputBonusNumber();
+        int bonusNumber= inputView.inputBonusNumber(winningLotto);
 
         LottoResult lottoResult=new LottoResult();
 
