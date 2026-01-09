@@ -20,9 +20,9 @@ public enum Rank {
         this.prize=prize;
     }
 
-    public static Rank from(int matchCount){
+    public static Rank from(int matchCount, boolean bonusMatch){
         return Arrays.stream(values())
-                .filter(rank -> rank.matchCount==matchCount)
+                .filter(rank -> rank.matchCount==matchCount&&rank.bonusMatch==bonusMatch)
                 .findFirst()
                 .orElse(MISS);
     }
