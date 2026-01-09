@@ -7,6 +7,7 @@ import java.util.Map;
 public class LottoResult {
     private final Map<Rank, Integer> results;
     private long totalPrize;
+    private double yield;
 
     public LottoResult(){
         this.results=new EnumMap<>(Rank.class);
@@ -15,6 +16,7 @@ public class LottoResult {
             results.put(rank, 0);
         }
         this.totalPrize=0;
+        this.yield=0;
     }
 
     public void add(Rank rank){
@@ -28,5 +30,13 @@ public class LottoResult {
 
     public long getTotalPrize() {
         return totalPrize;
+    }
+
+    public void setYield(double yield){
+        this.yield=yield;
+    }
+
+    public String getYield(){
+        return String.format("%.1f", yield);
     }
 }
