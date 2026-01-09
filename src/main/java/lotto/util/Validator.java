@@ -5,6 +5,7 @@ import lotto.domain.Lotto;
 import java.util.List;
 
 public class Validator {
+    private Validator(){}
 
     public static void validatePurchaseAmount(Integer input) {
         amountIsNull(input);
